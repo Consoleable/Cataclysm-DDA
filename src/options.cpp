@@ -1583,7 +1583,18 @@ void options_manager::add_options_general()
         }, "ask"
            );
     } );
+    
+    add_empty_line();
+    add_option_group( "general", Group( "auto_consume_opts", to_translation( "Auto-Consume Options" ),
+                                        to_translation( "Options regarding auto-consumption." ) ),
+    [&]( const std::string & page_id ) {
+        add( "AUTO_CONSUME_DRUGS", page_id, to_translation( "Auto-Consume Drugs" ),
+             to_translation( "If true, will allow player to automatically consume drugs while in safe mode and addicted to that drug type." ),
+             false
+           );
 
+    } );
+    
     add_empty_line();
 
     add_option_group( "general", Group( "safe_mode_opts", to_translation( "Safe Mode Options" ),
